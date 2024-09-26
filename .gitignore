@@ -16,7 +16,7 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
-.prettierrc.mjs
+.prettierrc
 
 # macOS-specific files
 .DS_Store
