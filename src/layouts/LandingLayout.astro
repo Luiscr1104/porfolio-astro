@@ -1,0 +1,55 @@
+---
+import "@fontsource-variable/outfit";
+import "@fontsource-variable/inter";
+
+interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <!-- Preload critical assets if needed -->
+        <title>{title}</title>
+    </head>
+    <body
+        class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden"
+    >
+        <!-- Subtle background pattern -->
+        <div
+            class="fixed inset-0 z-[-1] h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"
+        >
+        </div>
+
+        <slot />
+    </body>
+</html>
+
+<style is:global>
+    :root {
+        --font-heading: "Outfit Variable", sans-serif;
+        --font-body: "Inter Variable", sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-heading);
+    }
+
+    body {
+        font-family: var(--font-body);
+    }
+</style>
