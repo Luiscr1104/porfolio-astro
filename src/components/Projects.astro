@@ -1,6 +1,10 @@
 ---
 import NextIcon from "./icons/NextIcon.astro";
 import TailwindIcon from "./icons/TailwindIcon.astro";
+import AstroIcon from "./icons/AstroIcon.astro";
+import ReactIcon from "./icons/ReactIcon.astro";
+import GitHubIcon from "./icons/GitHubIcon.astro";
+import LinkIcon from "./icons/LinkIcon.astro";
 
 const TAGS = {
   NEXT: {
@@ -8,52 +12,159 @@ const TAGS = {
     class: "bg-black text-white",
     icon: NextIcon,
   },
-  REACT_NATIVE: {
-    name: "React Native",
-    class: "bg-black text-white",
-    icon: NextIcon,
+  REACT: {
+    name: "React",
+    class: "bg-[#003159] text-white",
+    icon: ReactIcon,
   },
   TAILWIND: {
     name: "Tailwind CSS",
-    class: "bg-black text-white",
+    class: "bg-[#003159] text-white",
     icon: TailwindIcon,
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-[#ff5d01]/20 text-white",
+    icon: AstroIcon,
   },
 };
 
 const PROJECTS = [
   {
-    title: "Ecoinmo",
+    title: "Construhomes - Empresa de Construcción",
     description:
-      "Ecoinmo es una aplicación móvil que permite a los usuarios revisar sus estados de cuenta, generar proyecciones, y más.",
-    link: "https://play.google.com/store/apps/details?id=com.grupoecoquintas.EcoApp&pcampaignid=web_share",
-    tags: [TAGS.REACT_NATIVE, TAGS.NEXT, TAGS.TAILWIND],
+      "Sitio web premium para empresa constructora líder. Enfocado en la conversión, con diseño robusto y minimalista que transmite confianza y profesionalismo.",
+    link: "https://www.construhomescr.com",
+    github: undefined,
+    tags: [TAGS.ASTRO, TAGS.TAILWIND],
+    image: "/projects/construhomes.webp",
+  },
+  {
+    title: "RanTattoo - Studio de Tatuajes",
+    description:
+      "Portfolio visual de alto impacto para artista del tatuaje. Galería optimizada y diseño 'dark mode' elegante para resaltar el arte visual.",
+    link: "https://ranm-tattoo.vercel.app/",
+    github: undefined,
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    image: "/projects/ranTattoo.webp",
+  },
+  {
+    title: "Vacas y Toros — Juego de Lógica",
+    description:
+      "Duelo de mentes: un juego de estrategia y lógica donde el objetivo es adivinar un código numérico. Incluye modos Solo y VS, junto con un sistema de ranking y Salón de la Fama.",
+    link: "https://vacas-y-toros.vercel.app",
+    github: undefined,
+    tags: [TAGS.REACT, TAGS.NEXT, TAGS.TAILWIND],
+    image: "/projects/vacasYtoros.webp",
+  },
+  {
+    title: "BuyLand Costa Rica - Real Estate",
+    description:
+      "Plataforma de bienes raíces enfocada en la venta de terrenos y propiedades en Costa Rica. Diseño limpio y búsqueda avanzada.",
+    link: "https://buylandcr.com",
+    github: undefined,
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    image: "/projects/buylandcr.png",
+  },
+  {
+    title: "JyM - Soluciones Integrales",
+    description:
+      "Sitio web corporativo para empresa de servicios múltiples. Interfaz profesional con enfoque en servicios y contacto directo.",
+    link: "https://jymsolucionescr.com",
+    github: undefined,
+    tags: [TAGS.ASTRO, TAGS.TAILWIND],
+    image: "/projects/jym.png",
+  },
+  {
+    title: "Pure Oxygen - Salud y Bienestar",
+    description:
+      "Landing page para servicios de oxigenación y salud. Diseño minimalista y relajante centrado en la experiencia del usuario.",
+    link: "https://pureoxygencr.com",
+    github: undefined,
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    image: "/projects/pureOxygen.png",
+  },
+  {
+    title: "Ecoinmo - Real Estate App",
+    description:
+      "Aplicación móvil para el sector inmobiliario que permite gestionar estados de cuenta, proyecciones financieras y pagos de forma intuitiva.",
+    link: "https://play.google.com/store/apps/details?id=com.grupoecoquintas.EcoApp",
+    github: undefined,
+    tags: [TAGS.REACT, TAGS.NEXT, TAGS.TAILWIND],
     image: "/projects/ecoinmo.webp",
   },
 ];
 ---
 
-{
-  PROJECTS.map(({ image, title, description, tags }) => (
-    <article>
-      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
-      <p class="text-white text-lg mb-4 text-pretty">{description}</p>
-      <ul class="flex gap-x-2 flex-row">
-        {tags.map((tag) => (
-          <li>
-            <span
-              class={`flex gap-x-2 rounded-full text-xs py-1 px-2 ${tag.class}`}
+<div class="flex flex-col gap-y-24">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }, index) => {
+      const isEven = index % 2 === 0;
+      return (
+        <article class="flex flex-col md:flex-row gap-8 md:gap-12 group">
+          <div
+            class={`w-full md:w-1/2 ${isEven ? "md:order-1" : "md:order-2"}`}
+          >
+            <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition-all duration-500 group-hover:border-white/20 shadow-2xl">
+              <img
+                alt={title}
+                class="aspect-video w-full object-cover object-top transition duration-700 md:group-hover:scale-105"
+                loading="lazy"
+                src={image}
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            </div>
+          </div>
+
+          <div
+            class={`w-full md:w-1/2 flex flex-col justify-center ${isEven ? "md:order-2 text-right items-end" : "md:order-1 text-left items-start"}`}
+          >
+            <div
+              class={`flex flex-wrap gap-2 mb-4 ${isEven ? "justify-end" : "justify-start"}`}
             >
-              <tag.icon class="size-5" />
-              {tag.name}
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        class="rounded shadow-2xl shadow-white/10"
-        src={image}
-        alt={`Caputra de pantalla del proyecto ${image}`}
-      />
-    </article>
-  ))
-}
+              {tags.map((tag) => (
+                <span
+                  class={`flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider ${tag.class} border border-white/10 shadow-sm`}
+                >
+                  <tag.icon class="size-3.5" />
+                  {tag.name}
+                </span>
+              ))}
+            </div>
+
+            <h3 class="text-3xl font-bold text-white mb-4 leading-tight group-hover:text-yellow-200 transition-colors">
+              {title}
+            </h3>
+
+            <p
+              class={`text-gray-400 text-lg mb-8 leading-relaxed max-w-xl ${isEven ? "text-right" : "text-left"}`}
+            >
+              {description}
+            </p>
+
+            <div class="flex gap-4">
+              {link && (
+                <a
+                  href={link}
+                  class="group/btn flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-black transition hover:bg-yellow-200 shadow-xl"
+                >
+                  <LinkIcon class="size-5 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+                  Ver Proyecto
+                </a>
+              )}
+              {github && (
+                <a
+                  href={github}
+                  class="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-bold text-white backdrop-blur-xl transition hover:bg-white/10"
+                >
+                  <GitHubIcon class="size-5" />
+                  Código
+                </a>
+              )}
+            </div>
+          </div>
+        </article>
+      );
+    })
+  }
+</div>

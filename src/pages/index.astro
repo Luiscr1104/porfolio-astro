@@ -12,72 +12,81 @@ import CodeIcon from "../components/icons/Code.astro";
 import Projects from "../components/Projects.astro";
 ---
 
+<style is:global>
+  .snap-start {
+    scroll-snap-align: start;
+  }
+</style>
+
 <Layout
   title="Porfolio de Luis R Zúñiga S - Desarrollador y Programador Web con +5 años de experiencia"
   description="Desarrollador y Programador Web con +5 años de experiencia en desarrollo de sitios únicos."
 >
-  <main class="px-4">
-    <SectionContainer class="py-44 pb-32">
-      <img
-        src="/avatar.png"
-        alt="Luis R Zúñiga Sánchez"
-        class="size-20 rounded-full"
-      />
-      <h1
-        class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-8"
-      >
-        Hey soy Luis Roberto
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.linkedin.com/in/luis-z%C3%BA%C3%B1iga-s%C3%A1nchez-812017190/"
-          class="flex justify-center items-center px-4"
-        >
-          <Badge>Disponible para trabajar</Badge>
-        </a>
-      </h1>
-      <h2 class="text-xl lg:text-2xl text-pretty max-w-[700px]">
-        <span class="text-white"> +5 años de experiencia.</span>
-        <span class="text-yellow-200/90">
-          Desarollador Web y Aplicaciones.</span
-        ><span class="text-red-200/90"> De La Fortuna, Costa Rica</span>. <span
-          class="opacity-75 text-white"
-        >
-          Especializado en desarrollo de sitios únicos</span
-        >
-      </h2>
+  <SectionContainer
+    class="py-32 md:py-48 pb-32 min-h-screen flex flex-col justify-center snap-start"
+  >
+    <div class="flex flex-col gap-6 items-start">
+      <div class="flex items-center gap-4">
+        <img
+          class="rounded-full shadow-2xl size-20 border-2 border-white/10"
+          src="/avatar.png"
+          alt="luis photo"
+        />
+        <Badge>Disponible para trabajar</Badge>
+      </div>
 
-      <nav class="flex gap-4 mt-8 flex-wrap">
+      <h1
+        class="text-5xl md:text-7xl font-bold tracking-tighter text-white lg:max-w-4xl"
+      >
+        Diseñando el <span
+          class="bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-200 bg-clip-text text-transparent"
+          >futuro digital</span
+        > desde Costa Rica.
+      </h1>
+
+      <p class="text-xl md:text-2xl text-gray-400 max-w-2xl leading-relaxed">
+        Soy Luis Roberto, un desarrollador con <span
+          class="text-white font-medium">+5 años de experiencia</span
+        > que transforma ideas complejas en experiencias web excepcionales.
+      </p>
+
+      <nav class="flex flex-wrap gap-4 mt-4">
         <SocialPill
           href="https://www.linkedin.com/in/luis-z%C3%BA%C3%B1iga-s%C3%A1nchez-812017190/"
         >
-          <Linkedin class="size-4 md:size-6" /> Linkedin
+          <Linkedin class="size-5" />
+          LinkedIn
         </SocialPill>
         <SocialPill href="https://github.com/Luiscr1104">
-          <GitHubIcon class="size-4 md:size-6" /> GitHub
+          <GitHubIcon class="size-5" />
+          GitHub
         </SocialPill>
         <SocialPill href="mailto:luiscr1104@gmail.com">
-          <MailIcon class="size-4 md:size-6" /> luiscr1104@gmail.com
+          <MailIcon class="size-5" />
+          Escríbeme
         </SocialPill>
       </nav>
-    </SectionContainer>
+    </div>
+  </SectionContainer>
 
-    <SectionContainer id="experiencia">
-      <h2
-        class="text-white text-3xl font-semibold mb-6 flex gap-x-3 items-center"
-      >
-        <ExperienceIcon class="size-7" /> Experiencia Laboral
-      </h2>
-      <Experience />
-    </SectionContainer>
+  <SectionContainer
+    id="experiencia"
+    class="min-h-screen flex flex-col justify-center snap-start"
+  >
+    <h2
+      class="text-white text-3xl font-semibold mb-6 flex gap-x-3 items-center"
+    >
+      <ExperienceIcon class="size-7" /> Experiencia Laboral
+    </h2>
+    <Experience />
+  </SectionContainer>
 
-    <SectionContainer id="proyectos">
-      <h2
-        class="text-white text-3xl font-semibold mb-6 flex gap-x-3 items-center"
-      >
-        <CodeIcon class="size-7" /> Proyectos
-      </h2>
-      <Projects />
-    </SectionContainer>
-  </main>
+  <SectionContainer id="proyectos">
+    <h2
+      class="text-white text-3xl font-semibold mb-6 flex gap-x-3 items-center"
+    >
+      <CodeIcon class="size-7" /> Proyectos
+    </h2>
+    <Projects />
+  </SectionContainer>
 </Layout>

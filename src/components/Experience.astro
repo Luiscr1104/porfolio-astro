@@ -3,30 +3,33 @@ import ExprienceItem from "./ExprienceItem.astro";
 const EXPERIENCE = [
   {
     date: "Enero 2023 - Presente",
-    title: "Full-stack Developer en Grupo Ecoquintas",
+    title: "Full-stack Developer Senior — Grupo Ecoquintas",
+    company: "Grupo Ecoquintas",
     description:
-      "Desarrollo de aplicaciones web y móviles con React, Next.js, Node.js, y React Native. Publicación de app en Play Store y creación de API para verificación de clientes.",
-    link: "https://play.google.com/store/apps/details?id=com.grupoecoquintas.EcoApp&pcampaignid=web_share",
+      "Lidero el ecosistema digital multiplataforma utilizando React, Next.js y Node.js. Arquitecto de APIs críticas para la verificación de clientes y responsable del despliegue exitoso de aplicaciones móviles nativas en la Play Store, escalando soluciones para miles de usuarios.",
+    link: "https://play.google.com/store/apps/details?id=com.grupoecoquintas.EcoApp",
   },
   {
     date: "Mayo 2022 - Octubre 2022",
-    title: "Web User Interface Developer en Globant",
+    title: "Web User Interface Developer — Globant",
+    company: "Globant",
     description:
-      "Desarrollé interfaces web con ReactJs y Jest para clientes como Royal Caribbean y Disney. Implementé pruebas automatizadas para asegurar la calidad del código.",
+      "Desarrollé interfaces de alto rendimiento para gigantes de la industria como Disney y Royal Caribbean. Implementé arquitecturas escalables con React y aseguré la integridad del producto mediante sistemas de testing robustos con Jest, cumpliendo con los estándares de calidad más exigentes del mercado global.",
   },
   {
     date: "Enero 2022 - Mayo 2022",
-    title: "Software Engineer en Nayara Resorts",
+    title: "Software Engineer — Nayara Resorts",
+    company: "Nayara Resorts",
     description:
-      "Desarrollé interfaces de usuario intuitivas y atractivas para uno de los hoteles más reconocidos mundialmente. Usé frameworks como Vue.js y Vuetify para crear experiencias fluidas.",
+      "Diseñé y desarrollé experiencias digitales de lujo para uno de los resorts más prestigiosos del mundo. Utilicé Vue.js y Vuetify para crear interfaces inmersivas y fluidas que reflejan la exclusividad de la marca, optimizando la interacción del usuario en entornos de altísima demanda visual.",
   },
 ];
 ---
 
-<ol class="relative border-s border-gray-200 ml-4">
+<ol class="relative border-s border-white/10 ml-6 space-y-2">
   {
     EXPERIENCE.map((experiencia) => (
-      <li class="mb-10 ms-3">
+      <li class="group">
         <ExprienceItem {...experiencia} />
       </li>
     ))
